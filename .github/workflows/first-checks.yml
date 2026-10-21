@@ -22,3 +22,12 @@ jobs:
             echo "Check failed: README.md missing"
             exit 1
           fi
+  name: Check the test report exists
+  run: |
+    if [ -f report.txt ]; then
+      echo "Check passed: report.txt found"
+    else
+      echo "Check failed: report.txt missing"
+      exit 1
+    fi
+
