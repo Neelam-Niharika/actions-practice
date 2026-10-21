@@ -1,0 +1,24 @@
+name: First Checks
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  greeting-check:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Get the code
+        uses: actions/checkout@v4
+
+      - name: Say hello
+        run: echo "The workflow is running"
+
+      - name: Check the README exists
+        run: |
+          if [ -f README.md ]; then
+            echo "Check passed: README.md found"
+          else
+            echo "Check failed: README.md missing"
+            exit 1
+          fi
